@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f36f12, #b3540e);
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(0,0,0,0.5);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Panel</h2>
+    <p>Welcome to the admin panel. Here you can manage the system:</p>
+
+    <ul>
+      <li><a href="{{ url_for('view_reports') }}" class="btn btn-light mb-2">View Patient Reports</a></li>
+      <li><a href="{{ url_for('manage_users') }}" class="btn btn-light mb-2">Manage Users</a></li>
+      <!-- Add more admin options here -->
+    </ul>
+
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+  </div>
+</body>
+</html>

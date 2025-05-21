@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-color: f36f12;
+      font-family: Arial, sans-serif;
+    }
+
+    .dashboard-card {
+      max-width: 500px;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      background-color: rgb(248, 96, 8);
+      text-align: center;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-card">
+    <img src="{{ url_for('static', filename='snsu_logo.png') }}" alt="SNSU Logo" class="logo">
+    <h3>Welcome to the Dashboard</h3>
+    <hr />
+    <a href="{{ url_for('report') }}" class="btn btn-primary btn-block mb-2">📝 New Patient</a>
+    <a href="{{ url_for('admin') }}" class="btn btn-secondary btn-block mb-2">🔐 Proceed to Admin</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger btn-block">🚪 Logout</a>
+  </div>
+</body>
+</html>

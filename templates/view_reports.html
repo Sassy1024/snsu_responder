@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Reports</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="bg-light p-4">
+  <div class="container">
+    <h2>Patient Reports</h2>
+    <a href="{{ url_for('admin') }}" class="btn btn-secondary mb-3">Back to Admin</a>
+
+    {% if reports %}
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Year/Section</th>
+            <th>Age</th>
+            <th>Date</th>
+            <th>Time of Incident</th>
+            <th>LOC</th>
+            <th>Speech</th>
+            <th>Skin</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in reports %}
+          <tr>
+            <td>{{ report.name }}</td>
+            <td>{{ report.grade_section }}</td>
+            <td>{{ report.age }}</td>
+            <td>{{ report.date }}</td>
+            <td>{{ report.time_of_incident }}</td>
+            <td>{{ report.loc }}</td>
+            <td>{{ report.speech }}</td>
+            <td>{{ report.skin }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No reports found.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
