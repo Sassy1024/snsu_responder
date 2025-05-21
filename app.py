@@ -8,10 +8,10 @@ app.secret_key = 'your_secret_key_here'  # Replace with a secure random key
 
 # MySQL Database Configuration
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'stone10242003',
-    'database': 'snsu_drrm'
+    'host': os.environ.get('DB_HOST'),
+    'user': os.environ.get('DB_USER'),
+    'password': os.environ.get('DB_PASSWORD'),
+    'database': os.environ.get('DB_NAME')
 }
 
 @app.route('/')
@@ -158,5 +158,9 @@ def manage_users():
     conn.close()
     return render_template('manage_users.html', users=users)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
